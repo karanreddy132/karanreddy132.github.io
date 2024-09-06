@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kondru Karan Reddy - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #ff4081;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand, .nav-link {
+            color: var(--text-color) !important;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--background-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientText 5s ease-in-out infinite;
+        }
+
+        @keyframes gradientText {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 64, 129, 0.3);
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .card-title {
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        #contact {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .contact-form {
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            background-color: var(--background-color);
+            border: none;
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 255, 255, 0.25);
+        }
+
+        /* Animated background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            animation: move 25s linear infinite;
+            bottom: -150px;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- <a class="navbar-brand" href="#hero">KKR</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-content">
+            <h1 data-aos="fade-down" data-aos-delay="100">KONDRU KARAN REDDY</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Aspiring Computer Science Engineer | Machine Learning Enthusiast</p>
+            <!-- <a href="#projects" class="btn btn-custom btn-lg" data-aos="fade-up" data-aos-delay="300">View My Projects</a> -->
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4" data-aos="fade-right">
+                    <img src="my_photo.jpeg" alt="Kondru Karan Reddy" class="img-fluid rounded-circle" width="300px">
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <p>Hello! I'm Karan, an Electrical Engineering graduate from IIT Hyderabad with a passion for Computer Science and Machine Learning. Currently pursuing my M.Tech in Computer Science Engineering at IIIT Hyderabad, I'm always excited to tackle new challenges and create innovative solutions.</p>
+                    <p>With a strong foundation in computer science, I love exploring the intersection of these fields and applying my skills to solve complex problems.</p>
+                    <a href="#contact" class="btn btn-custom mt-3">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-item">
+                        <i class="skill-icon fab fa-python"></i>
+                        <h4>Python</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-item">
+                        <i class="skill-icon fab fa-cuttlefish"></i>
+                        <h4>C++</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-item">
+                        <i class="skill-icon fab fa-html5"></i>
+                        <h4>HTML/CSS</h4>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-item">
+                        <i class="skill-icon fab fa-node-js"></i>
+                        <h4>Node.js</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4" data-aos="fade-up" data-aos-delay="500">
+                <h4 class="text-center">Other Skills</h4>
+                <p class="text-center">Git, TensorFlow, MySQL, NoSQL, MongoDB</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Key Projects</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Multilabel Toxic Comments Classification</h5>
+                            <p class="card-text">A machine learning project to classify text based on their toxicity with 6 outputs using RNN and LSTM.</p>
+                            <ul>
+                                <li>Applied different techniques like Tokenization, Lemmatization, and vectorization.</li>
+                                <li>Implemented and compared various deep learning models for text classification.</li>
+                            </ul>
+                            <p><strong>Technologies:</strong> Python, NLTK, SciPy, Scikit-learn, TensorFlow, NumPy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Face Emotion Recognition</h5>
+                            <p class="card-text">A deep learning project to classify images based on facial expressions.</p>
+                            <ul>
+                                <li>Applied techniques like Convolutional Neural Networks (CNN), pooling, and Neural networks to classify the images.</li>
+                                <li>Developed a robust model capable of recognizing various human emotions from facial images.</li>
+                            </ul>
+                            <p><strong>Technologies:</strong> Python, TensorFlow, Matplotlib, NumPy, Scikit-learn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Heart Disease Prediction</h5>
+                            <p class="card-text">A machine learning project to predict heart disease based on different input variables.</p>
+                            <ul>
+                                <li>Applied data analysis and various machine learning algorithms like Logistic Regression, SVM, and Naive Bayes.</li>
+                                <li>Conducted comprehensive feature analysis and model comparison to achieve high prediction accuracy.</li>
+                            </ul>
+                            <p><strong>Technologies:</strong> Python, Scikit-learn, Pandas, NumPy, Seaborn</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Job Portal Website</h5>
+                            <p class="card-text">A web application where companies can post jobs and candidates can apply.</p>
+                            <ul>
+                                <li>Designed and implemented both frontend and backend components of the website.</li>
+                                <li>Integrated database functionality for storing and retrieving job postings and applications.</li>
+                            </ul>
+                            <p><strong>Technologies:</strong> HTML, CSS, Bootstrap, MySQL, PHP, JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Education</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">M.Tech in Computer Science Engineering</h5>
+                            <p class="card-text">International Institute of Information Technology, Hyderabad</p>
+                            <p class="card-text">July 2024 - Ongoing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">B.Tech in Electrical Engineering</h5>
+                            <p class="card-text">Indian Institute of Technology, Hyderabad</p>
+                            <p class="card-text">November 2020 - May 2024</p>
+                            <p class="card-text">CGPA: 7.78</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profiles" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Coding Profiles</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.linkedin.com/in/karan-reddy" target="_blank" class="text-decoration-none">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fab fa-linkedin fa-3x mb-3" style="color: var(--primary-color);"></i>
+                                <h5 class="card-title">LinkedIn</h5>
+                                <p class="card-text">Karan Reddy</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/karanreddy132" target="_blank" class="text-decoration-none">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fab fa-github fa-3x mb-3" style="color: var(--primary-color);"></i>
+                                <h5 class="card-title">GitHub</h5>
+                                <p class="card-text">karanreddy132</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://leetcode.com/Karanreddy132" target="_blank" class="text-decoration-none">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-code fa-3x mb-3" style="color: var(--primary-color);"></i>
+                                <h5 class="card-title">LeetCode</h5>
+                                <p class="card-text">Karanreddy132</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://auth.geeksforgeeks.org/user/karanreddykondru2002" target="_blank" class="text-decoration-none">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <i class="fas fa-laptop-code fa-3x mb-3" style="color: var(--primary-color);"></i>
+                                <h5 class="card-title">GeeksForGeeks</h5>
+                                <p class="card-text">karanreddykondru2002</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <form class="contact-form" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-3">
+        <p>&copy; 2024 Kondru Karan Reddy. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar color change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(30, 30, 30, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(30, 30, 30, 0.8)';
+            }
+        });
+
+        // Generate more animated background elements
+        const animatedBg = document.querySelector('.animated-bg');
+        for (let i = 0; i < 50; i++) {
+            const span = document.createElement('span');
+            span.style.left = Math.random() * window.innerWidth + 'px';
+            span.style.animationDelay = Math.random() * 25 + 's';
+            span.style.animationDuration = 15 + Math.random() * 10 + 's';
+            animatedBg.appendChild(span);
+        }
+    </script>
+</body>
+</html>
